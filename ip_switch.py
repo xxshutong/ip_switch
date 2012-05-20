@@ -90,7 +90,11 @@ if __name__ == "__main__":
     print previous_ip
     send_mail().send_mail('New IP address From leon', 'Current address: http://%s:5000' % previous_ip)
     while True:
-        current_ip = get_current_ip()
+        try:
+            current_ip = get_current_ip()
+        except:
+            continue
+
         if previous_ip != current_ip:
             send_mail().send_mail('New IP address From leon', 'Current address: http://%s:5000' % previous_ip)
         time.sleep(60)
