@@ -9,7 +9,7 @@ class send_mail():
         self.mail_user="ipswitcher001"
         self.mail_passwd="wjzpwwjzpw"
         self.postfix="gmail.com"
-        self.mailto=['xxshutong@gmail.com']
+        self.mailto=['raymondchew86@gmail.com', 'xxshutong@gmail.com']
     def send_mail(self,sub,content):
         gmail_user=self.mail_user+"@"+self.postfix
         msg=MIMEText(content)
