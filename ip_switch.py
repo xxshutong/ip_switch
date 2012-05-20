@@ -9,13 +9,13 @@ class send_mail():
         self.mail_user="ipswitcher001"
         self.mail_passwd="wjzpwwjzpw"
         self.postfix="gmail.com"
-        self.mailto=['raymondchew86@gmail.com','xxshutong@gmail.com']
+        self.mailto=['xxshutong@gmail.com']
     def send_mail(self,sub,content):
         gmail_user=self.mail_user+"@"+self.postfix
         msg=MIMEText(content)
         msg['Subject']=sub
         msg['From']='Me'
-        msg['To']='xxshutong'
+        msg['To']=';'.join(self.mailto)
 
         s=smtplib.SMTP('smtp.gmail.com',587)
         s.ehlo()
@@ -96,6 +96,6 @@ if __name__ == "__main__":
             continue
 
         if previous_ip != current_ip:
-            send_mail().send_mail('New IP address From leon', 'Current address: http://%s:5000' % previous_ip)
+            send_mail().send_mail('New IP address From leon', 'Current address: http://%s:5000' % current_ip)
         time.sleep(60)
 
