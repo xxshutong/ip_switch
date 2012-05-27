@@ -97,5 +97,6 @@ if __name__ == "__main__":
 
         if previous_ip != current_ip:
             send_mail().send_mail('New IP address From leon', 'Current address: http://%s:5000' % current_ip)
+            previous_ip = current_ip
         time.sleep(60)
 
